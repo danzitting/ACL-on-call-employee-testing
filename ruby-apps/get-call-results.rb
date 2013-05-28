@@ -4,7 +4,7 @@ require 'csv'
 
 # Get your Account Sid and Auth Token from twilio.com/user/account 
 account_sid = 'AC03d7956957b22447fcf55c95301eca13'
-auth_token = '03541e4a38856a8f8720d03130bd76f8'
+auth_token = 'YOUR-TWILIO-AUTH-TOKEN'
 @client = Twilio::REST::Client.new account_sid, auth_token
 
 CSV.open("C:/ACL DATA/ACL-on-call-employee-testing/source-data/call-results.csv", "w", {:force_quotes=>true}) do |csv|
