@@ -1,0 +1,322 @@
+@@ Log File C:\ACL DATA\ACL-on-call-employee-testing\ACL-on-call-employee-testing.LOG Opened at $$51a4b2c3 06:36:03 on 05/28/2013  
+@ DO import_on_call_employees
+06:50:19 - 05/28/2013  
+@ SET FOLDER /Data
+06:50:19 - 05/28/2013  
+
+@ DELETE FORMAT on_call_employees OK
+06:50:19 - 05/28/2013  
+'on_call_employees' is undefined
+
+
+@ IMPORT EXCEL TO on_call_employees "C:\ACL DATA\ACL-on-call-employee-testing\source-data\on_call_employees.fil" FROM "C:\ACL DATA\ACL-on-call-employee-testing\source-data\Example Cell Phone List.xlsx" TABLE "Sheet1$" KEEPTITLE FIELD "First_Name" C WID 11 AS "" FIELD "Last_Name" C WID 11 AS "" FIELD "Title" C WID 41 AS "" FIELD "Cell__" C WID 15 AS "" FIELD "F5" C WID 10 AS ""
+06:50:19 - 05/28/2013  
+@ OPEN on_call_employees
+06:50:19 - 05/28/2013  
+5 fields activated
+Opening file name on_call_employees.fil as supplied in the table layout.
+
+@ open on_call_employees
+06:50:19 - 05/28/2013  
+5 fields activated
+Opening file name on_call_employees.fil as supplied in the table layout.
+@ COMMENT - Execution of import_on_call_employees  completed
+06:50:19 - 05/28/2013  
+@ CLOSE
+06:51:54 - 05/28/2013  
+@ DO call_oncall_employees
+06:51:54 - 05/28/2013  
+@ open connections_employees
+06:51:54 - 05/28/2013  
+Table 'connections_employees' invalid
+Command Failed
+@ COMMENT - Execution of call_oncall_employees failed with 'open connections_employees' command, Capture and Display current variables:
+06:51:56 - 05/28/2013  
+OUTPUTFOLDER         C "/Data"
+Total string space available: 28140
+
+<?xml version="1.0" encoding="Windows-1252" ?>
+<result version="4" aclversion="10.0.0.000">
+<command>
+<commandId>DISPLAY</commandId>
+<commandLine>COMMENT - Execution of call_oncall_employees failed with &apos;open&#160;connections_employees&apos; command, Capture and Display current variables:
+</commandLine>
+</command>
+<data>
+<display_variables>
+<variables>
+<variable>
+<name>OUTPUTFOLDER</name>
+<type>C</type>
+<value>&quot;/Data&quot;</value>
+</variable>
+</variables>
+<freespace>28140</freespace>
+</display_variables>
+</data>
+<cmdMetaData>
+<designation>Produced with ACL by: ACL</designation>
+<timeStamp>
+<date>
+<year>2013</year>
+<month>5</month>
+<day>28</day>
+</date>
+<time>
+<hour>6</hour>
+<min>51</min>
+<sec>56</sec>
+</time>
+</timeStamp>
+</cmdMetaData>
+</result>
+@ DO call_oncall_employees
+06:52:05 - 05/28/2013  
+@ open on_call_employees
+06:52:05 - 05/28/2013  
+5 fields activated
+Opening file name on_call_employees.fil as supplied in the table layout.
+
+@ EXPORT FIELDS INCLUDE(Cell__,"+01234567890") TO "C:\ACL DATA\ACL-on-call-employee-testing\source-data\cleansed_cell_list"
+06:52:05 - 05/28/2013  
+6 records produced
+Output to C:\ACL DATA\ACL-on-call-employee-testing\source-data\cleansed_cell_list.txt is done
+
+@ COM EXECUTE 'ruby "C:\ACL DATA\ACL-on-call-employee-testing\ruby-apps\call-generator.rb"'
+06:52:09 - 05/28/2013  
+@ COMMENT - Execution of call_oncall_employees completed
+06:52:09 - 05/28/2013  
+@ CLOSE
+06:52:33 - 05/28/2013  
+@ DO call_oncall_employees
+06:52:33 - 05/28/2013  
+@ open on_call_employees
+06:52:33 - 05/28/2013  
+5 fields activated
+Opening file name on_call_employees.fil as supplied in the table layout.
+
+@ EXPORT FIELDS INCLUDE(Cell__,"+01234567890") TO "C:\ACL DATA\ACL-on-call-employee-testing\source-data\cleansed_cell_list"
+06:52:33 - 05/28/2013  
+6 records produced
+Output to C:\ACL DATA\ACL-on-call-employee-testing\source-data\cleansed_cell_list.txt is done
+
+@ close on_call_employees
+06:52:34 - 05/28/2013  
+
+@ COM EXECUTE 'ruby "C:\ACL DATA\ACL-on-call-employee-testing\ruby-apps\call-generator.rb"'
+06:52:34 - 05/28/2013  
+@ COMMENT - Execution of call_oncall_employees completed
+06:52:34 - 05/28/2013  
+@ DO import_on_call_employees
+06:54:30 - 05/28/2013  
+@ SET FOLDER /Data
+06:54:30 - 05/28/2013  
+
+@ DELETE FORMAT on_call_employees OK
+06:54:30 - 05/28/2013  
+
+@ IMPORT EXCEL TO on_call_employees "C:\ACL DATA\ACL-on-call-employee-testing\source-data\on_call_employees.fil" FROM "C:\ACL DATA\ACL-on-call-employee-testing\source-data\Example Cell Phone List.xlsx" TABLE "Sheet1$" KEEPTITLE FIELD "First_Name" C WID 11 AS "" FIELD "Last_Name" C WID 11 AS "" FIELD "Title" C WID 41 AS "" FIELD "Cell__" C WID 15 AS "" FIELD "F5" C WID 10 AS ""
+06:54:30 - 05/28/2013  
+@ OPEN on_call_employees
+06:54:30 - 05/28/2013  
+5 fields activated
+Opening file name on_call_employees.fil as supplied in the table layout.
+
+@ open on_call_employees
+06:54:30 - 05/28/2013  
+5 fields activated
+Opening file name on_call_employees.fil as supplied in the table layout.
+@ COMMENT - Execution of import_on_call_employees  completed
+06:54:30 - 05/28/2013  
+@ CLOSE
+06:54:55 - 05/28/2013  
+@ DO import_on_call_employees
+06:54:57 - 05/28/2013  
+@ SET FOLDER /Data
+06:54:57 - 05/28/2013  
+
+@ DELETE FORMAT on_call_employees OK
+06:54:57 - 05/28/2013  
+
+@ IMPORT EXCEL TO on_call_employees "C:\ACL DATA\ACL-on-call-employee-testing\source-data\on_call_employees.fil" FROM "C:\ACL DATA\ACL-on-call-employee-testing\source-data\Example Cell Phone List.xlsx" TABLE "Sheet1$" KEEPTITLE FIELD "First_Name" C WID 11 AS "" FIELD "Last_Name" C WID 11 AS "" FIELD "Title" C WID 41 AS "" FIELD "Cell__" C WID 15 AS "" FIELD "F5" C WID 10 AS ""
+06:54:57 - 05/28/2013  
+@ OPEN on_call_employees
+06:54:57 - 05/28/2013  
+5 fields activated
+Opening file name on_call_employees.fil as supplied in the table layout.
+@ COMMENT - Execution of import_on_call_employees  completed
+06:54:57 - 05/28/2013  
+@ CLOSE
+06:55:10 - 05/28/2013  
+@ DO call_oncall_employees
+06:55:10 - 05/28/2013  
+@ open on_call_employees
+06:55:10 - 05/28/2013  
+5 fields activated
+Opening file name on_call_employees.fil as supplied in the table layout.
+
+@ EXPORT FIELDS INCLUDE(Cell__,"+01234567890") TO "C:\ACL DATA\ACL-on-call-employee-testing\source-data\cleansed_cell_list"
+06:55:10 - 05/28/2013  
+6 records produced
+Output to C:\ACL DATA\ACL-on-call-employee-testing\source-data\cleansed_cell_list.txt is done
+
+@ close on_call_employees
+06:55:12 - 05/28/2013  
+
+@ COM EXECUTE 'ruby "C:\ACL DATA\ACL-on-call-employee-testing\ruby-apps\call-generator.rb"'
+06:55:12 - 05/28/2013  
+@ COMMENT - Execution of call_oncall_employees completed
+06:55:12 - 05/28/2013  
+@ DO call_oncall_employees
+06:55:25 - 05/28/2013  
+@ open on_call_employees
+06:55:25 - 05/28/2013  
+5 fields activated
+Opening file name on_call_employees.fil as supplied in the table layout.
+
+@ EXPORT FIELDS INCLUDE(Cell__,"+01234567890") TO "C:\ACL DATA\ACL-on-call-employee-testing\source-data\cleansed_cell_list"
+06:55:25 - 05/28/2013  
+6 records produced
+Output to C:\ACL DATA\ACL-on-call-employee-testing\source-data\cleansed_cell_list.txt is done
+
+@ close on_call_employees
+06:55:27 - 05/28/2013  
+
+@ EXECUTE 'ruby "C:\ACL DATA\ACL-on-call-employee-testing\ruby-apps\call-generator.rb"'
+06:55:27 - 05/28/2013  
+EXECUTE 'ruby "C:\ACL DATA\ACL-on-call-employee-testing\ruby-apps\call-generator.rb"'
+Application return code : 3.
+@ COMMENT - Execution of call_oncall_employees completed
+06:55:33 - 05/28/2013  
+@ DO call_oncall_employees
+06:58:38 - 05/28/2013  
+@ open on_call_employees
+06:58:38 - 05/28/2013  
+5 fields activated
+Opening file name on_call_employees.fil as supplied in the table layout.
+
+@ EXPORT FIELDS INCLUDE(Cell__,"+01234567890") TO "C:\ACL DATA\ACL-on-call-employee-testing\source-data\cleansed_cell_list"
+06:58:38 - 05/28/2013  
+6 records produced
+Output to C:\ACL DATA\ACL-on-call-employee-testing\source-data\cleansed_cell_list.txt is done
+
+@ close on_call_employees
+06:58:39 - 05/28/2013  
+
+@ EXECUTE 'ruby "C:\ACL DATA\ACL-on-call-employee-testing\ruby-apps\call-generator.rb"'
+06:58:39 - 05/28/2013  
+EXECUTE 'ruby "C:\ACL DATA\ACL-on-call-employee-testing\ruby-apps\call-generator.rb"'
+Application return code : 1.
+@ COMMENT - Execution of call_oncall_employees completed
+06:58:42 - 05/28/2013  
+@ DO sms_oncall_employees
+07:00:03 - 05/28/2013  
+@ open on_call_employees
+07:00:03 - 05/28/2013  
+5 fields activated
+Opening file name on_call_employees.fil as supplied in the table layout.
+
+@ EXPORT FIELDS INCLUDE(Cell__,"+01234567890") TO "C:\ACL DATA\ACL-on-call-employee-testing\source-data\cleansed_cell_list"
+07:00:03 - 05/28/2013  
+6 records produced
+Output to C:\ACL DATA\ACL-on-call-employee-testing\source-data\cleansed_cell_list.txt is done
+
+@ close on_call_employees
+07:00:07 - 05/28/2013  
+
+@ EXECUTE 'ruby "C:\ACL DATA\ACL-on-call-employee-testing\ruby-apps\sms-generator.rb"'
+07:00:07 - 05/28/2013  
+EXECUTE 'ruby "C:\ACL DATA\ACL-on-call-employee-testing\ruby-apps\sms-generator.rb"'
+Application return code : 1.
+@ COMMENT - Execution of sms_oncall_employees  completed
+07:00:07 - 05/28/2013  
+@ DO sms_oncall_employees
+07:01:31 - 05/28/2013  
+@ open on_call_employees
+07:01:31 - 05/28/2013  
+5 fields activated
+Opening file name on_call_employees.fil as supplied in the table layout.
+
+@ EXPORT FIELDS INCLUDE(Cell__,"+01234567890") TO "C:\ACL DATA\ACL-on-call-employee-testing\source-data\cleansed_cell_list"
+07:01:31 - 05/28/2013  
+6 records produced
+Output to C:\ACL DATA\ACL-on-call-employee-testing\source-data\cleansed_cell_list.txt is done
+
+@ close on_call_employees
+07:01:33 - 05/28/2013  
+
+@ EXECUTE 'ruby "C:\ACL DATA\ACL-on-call-employee-testing\ruby-apps\sms-generator.rb"'
+07:01:33 - 05/28/2013  
+EXECUTE 'ruby "C:\ACL DATA\ACL-on-call-employee-testing\ruby-apps\sms-generator.rb"'
+Application return code : 1.
+@ COMMENT - Execution of sms_oncall_employees  completed
+07:01:40 - 05/28/2013  
+@ DO import_call_results
+07:05:32 - 05/28/2013  
+@ SET FOLDER /Data
+07:05:32 - 05/28/2013  
+
+@ DELETE FORMAT call_results OK
+07:05:32 - 05/28/2013  
+'call_results' is undefined
+
+
+@ EXECUTE 'ruby "C:\ACL DATA\ACL-on-call-employee-testing\ruby-apps\get-call-results.rb"'
+07:05:32 - 05/28/2013  
+EXECUTE 'ruby "C:\ACL DATA\ACL-on-call-employee-testing\ruby-apps\get-call-results.rb"'
+Application return code : 0.
+
+@ IMPORT DELIMITED TO call_results "C:\ACL DATA\ACL-on-call-employee-testing\source-data\call_results.fil" FROM "C:\ACL DATA\ACL-on-call-employee-testing\source-data\call-results.csv" 0 SEPARATOR "," QUALIFIER '"' CONSECUTIVE STARTLINE 1 KEEPTITLE FIELD "sid" C AT 1 DEC 0 WID 34 PIC "" AS "" FIELD "date_created" C AT 35 DEC 0 WID 31 PIC "" AS "" FIELD "to_phone" C AT 66 DEC 0 WID 12 PIC "" AS "" FIELD "from" C AT 78 DEC 0 WID 12 PIC "" AS "" FIELD "status" C AT 90 DEC 0 WID 9 PIC "" AS "" FIELD "start_time" C AT 99 DEC 0 WID 31 PIC "" AS "" FIELD "end_time" C AT 130 DEC 0 WID 31 PIC "" AS "" FIELD "duration" C AT 161 DEC 0 WID 8 PIC "" AS "" FIELD "direction" C AT 169 DEC 0 WID 12 PIC "" AS "" FIELD "answered_by" C AT 181 DEC 0 WID 11 PIC "" AS ""
+07:05:34 - 05/28/2013  
+@ OPEN call_results
+07:05:34 - 05/28/2013  
+10 fields activated
+Opening file name call_results.fil as supplied in the table layout.
+
+@ OPEN call_results
+07:05:34 - 05/28/2013  
+10 fields activated
+Opening file name call_results.fil as supplied in the table layout.
+@ COMMENT - Execution of import_call_results completed
+07:05:34 - 05/28/2013  
+@ CLOSE
+07:06:57 - 05/28/2013  
+@ DO tweet_result
+07:06:57 - 05/28/2013  
+@ EXECUTE 't update "On-call employee testing has been completed using @aclservices!"'
+07:06:57 - 05/28/2013  
+EXECUTE 't update "On-call employee testing has been completed using @aclservices!"'
+Application return code : 0.
+
+@ EXECUTE 'explorer https://twitter.com/dans_acl'
+07:07:01 - 05/28/2013  
+EXECUTE 'explorer https://twitter.com/dans_acl'
+Application return code : 1.
+@ COMMENT - Execution of tweet_result  completed
+07:07:01 - 05/28/2013  
+@ DELETE FORMAT call_results OK
+07:09:53 - 05/28/2013  
+@ DELETE FORMAT on_call_employees OK
+07:09:57 - 05/28/2013  
+@@ Log File C:\ACL DATA\ACL-on-call-employee-testing\ACL-on-call-employee-testing.LOG Opened at $$51a4d201 08:49:21 on 05/28/2013  
+@@ Log File C:\ACL DATA\ACL-on-call-employee-testing\ACL-on-call-employee-testing.LOG Opened at $$51a4f7cd 11:30:37 on 05/28/2013  
+@ DO import_on_call_employees
+11:30:52 - 05/28/2013  
+@ SET FOLDER /Data
+11:30:52 - 05/28/2013  
+
+@ DELETE FORMAT on_call_employees OK
+11:30:52 - 05/28/2013  
+'on_call_employees' is undefined
+
+
+@ IMPORT EXCEL TO on_call_employees "C:\ACL DATA\ACL-on-call-employee-testing\source-data\on_call_employees.fil" FROM "C:\ACL DATA\ACL-on-call-employee-testing\source-data\Example Cell Phone List.xlsx" TABLE "Sheet1$" KEEPTITLE FIELD "First_Name" C WID 11 AS "" FIELD "Last_Name" C WID 11 AS "" FIELD "Title" C WID 41 AS "" FIELD "Cell__" C WID 15 AS "" FIELD "F5" C WID 10 AS ""
+11:30:52 - 05/28/2013  
+@ OPEN on_call_employees
+11:30:52 - 05/28/2013  
+5 fields activated
+Opening file name on_call_employees.fil as supplied in the table layout.
+@ COMMENT - Execution of import_on_call_employees  completed
+11:30:52 - 05/28/2013  
+@ CLOSE
+11:31:35 - 05/28/2013  
