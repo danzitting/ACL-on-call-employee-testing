@@ -1,0 +1,60 @@
+@ACL1000
+^LOGFILE  ACL_on_call_employee_testing        "" "ACL_on_call_employee_testing.LOG"
+[PARENT_FOLDER_ID] 0
+^FOLDER   Import                              1369748296
+[PARENT_FOLDER_ID] 0
+^FOLDER   Test                                1369748364
+[PARENT_FOLDER_ID] 0
+^BATCH    problem_oncall_employee            
+[PARENT_FOLDER_ID] 1369748364
+open call_results
+
+SET FILTER TO status = "failed"
+
+EXPORT FIELDS sid AS 'sid' date_created AS 'date_created' to_phone AS 'to_phone' from AS 'from' status AS 'status' start_time AS 'start_time' end_time AS 'end_time' duration AS 'duration' direction AS 'direction' answered_by AS 'answered_by' ACLGRC TO "85" 
+
+EXECUTE 'explorer "https://results.aclgrc.com/projects/28/controls/63/control_tests/85"'
+^FOLDER   Data                                1369748725
+[PARENT_FOLDER_ID] 0
+^BATCH    import_on_call_employees           
+[PARENT_FOLDER_ID] 1369748296
+SET FOLDER /Data
+
+DELETE FORMAT on_call_employees OK
+
+IMPORT EXCEL TO on_call_employees "C:\ACL DATA\ACL-on-call-employee-testing\source-data\on_call_employees.fil" FROM "C:\ACL DATA\ACL-on-call-employee-testing\source-data\Example Cell Phone List.xlsx" TABLE "Sheet1$" KEEPTITLE FIELD "First_Name" C WID 11 AS "" FIELD "Last_Name" C WID 11 AS "" FIELD "Title" C WID 41 AS "" FIELD "Cell__" C WID 15 AS "" FIELD "F5" C WID 10 AS ""
+^BATCH    call_oncall_employees              
+[PARENT_FOLDER_ID] 1369748364
+open on_call_employees
+
+EXPORT FIELDS INCLUDE(Cell__,"+01234567890") TO "C:\ACL DATA\ACL-on-call-employee-testing\source-data\cleansed_cell_list"
+
+close on_call_employees
+
+EXECUTE 'ruby "C:\ACL DATA\ACL-on-call-employee-testing\ruby-apps\call-generator.rb"'
+^BATCH    sms_oncall_employees               
+[PARENT_FOLDER_ID] 1369748364
+open on_call_employees
+
+EXPORT FIELDS INCLUDE(Cell__,"+01234567890") TO "C:\ACL DATA\ACL-on-call-employee-testing\source-data\cleansed_cell_list"
+
+close on_call_employees
+
+EXECUTE 'ruby "C:\ACL DATA\ACL-on-call-employee-testing\ruby-apps\sms-generator.rb"'
+^BATCH    import_call_results                
+[PARENT_FOLDER_ID] 1369748296
+SET FOLDER /Data
+
+DELETE FORMAT call_results OK 
+
+EXECUTE 'ruby "C:\ACL DATA\ACL-on-call-employee-testing\ruby-apps\get-call-results.rb"'
+
+IMPORT DELIMITED TO call_results "C:\ACL DATA\ACL-on-call-employee-testing\source-data\call_results.fil" FROM "C:\ACL DATA\ACL-on-call-employee-testing\source-data\call-results.csv" 0 SEPARATOR "," QUALIFIER '"' CONSECUTIVE STARTLINE 1 KEEPTITLE FIELD "sid" C AT 1 DEC 0 WID 34 PIC "" AS "" FIELD "date_created" C AT 35 DEC 0 WID 31 PIC "" AS "" FIELD "to_phone" C AT 66 DEC 0 WID 12 PIC "" AS "" FIELD "from" C AT 78 DEC 0 WID 12 PIC "" AS "" FIELD "status" C AT 90 DEC 0 WID 9 PIC "" AS "" FIELD "start_time" C AT 99 DEC 0 WID 31 PIC "" AS "" FIELD "end_time" C AT 130 DEC 0 WID 31 PIC "" AS "" FIELD "duration" C AT 161 DEC 0 WID 8 PIC "" AS "" FIELD "direction" C AT 169 DEC 0 WID 12 PIC "" AS "" FIELD "answered_by" C AT 181 DEC 0 WID 11 PIC "" AS "" 
+
+OPEN call_results
+^BATCH    tweet_result                       
+[PARENT_FOLDER_ID] 0
+EXECUTE 't update "On-call employee testing has been completed using @aclservices!"'
+
+EXECUTE 'explorer https://twitter.com/dans_acl'
+^OPEN 
