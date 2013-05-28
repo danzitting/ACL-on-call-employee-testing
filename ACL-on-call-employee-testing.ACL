@@ -1,4 +1,10 @@
 @ACL1000
+^LAYOUT   on_call_employees                  88 D.T,
+First_Name     ASCII       1  11    
+Last_Name      ASCII      12  11    
+Title          ASCII      23  41    
+Cell__         ASCII      64  15    
+F5             ASCII      79  10    
 ^LOGFILE  ACL_on_call_employee_testing        "" "ACL_on_call_employee_testing.LOG"
 [PARENT_FOLDER_ID] 0
 ^FOLDER   Import                              1369748296
@@ -57,4 +63,24 @@ OPEN call_results
 EXECUTE 't update "On-call employee testing has been completed using @aclservices!"'
 
 EXECUTE 'explorer https://twitter.com/dans_acl'
-^OPEN 
+^REPORT   Default_View                       on_call_employees                D.T,
+[SKIP] 0
+[TLINES] 0
+[RLINES] 1
+[LINE] 1
+First_Name           PICTURE ""
+[LINE] 1
+Last_Name            PICTURE ""
+[LINE] 1
+Title                PICTURE ""
+[LINE] 1
+Cell__               PICTURE ""
+[LINE] 1
+F5                   PICTURE ""
+^FORMAT   on_call_employees                  on_call_employees                "C:\ACL DATA\ACL-on-call-employee-testing\source-data" "on_call_employees.fil" 0 ASCII 
+[PARENT_FOLDER_ID] 1369748725
+[LASTVIEW] "Default_View"
+[RETRIEVE] 0
+[REFRESH] EXCEL "C:\ACL DATA\ACL-on-call-employee-testing\source-data\on_call_employees.fil" FROM "C:\ACL DATA\ACL-on-call-employee-testing\source-data\Example Cell Phone List.xlsx" TABLE "Sheet1$" KEEPTITLE FIELD "First_Name" C WID 11 AS "" FIELD "Last_Name" C WID 11 AS "" FIELD "Title" C WID 41 AS "" FIELD "Cell__" C WID 15 AS "" FIELD "F5" C WID 10 AS ""
+
+^OPEN F "on_call_employees"
