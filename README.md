@@ -32,3 +32,7 @@ The following scripts rely on the noted external dependencies.
 - **tweet_results** - Requires the t Ruby gem to be installed and configured to use your Twitter account (https://github.com/sferik/t#configuration).
 
 Modifications to the scripts may obviously be made to add your own Twilio user credentials, ACL GRC export location, etc. The scripts simply illustrate how to conduct the test.
+
+#### LICENSE
+
+See LICENSE file included in this project.
