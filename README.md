@@ -29,5 +29,6 @@ The following scripts rely on the noted external dependencies.
 - **sms_oncall_employees** - Requires the sms-generator.rb Ruby script in the ruby-apps folder, the twilio-ruby Ruby gem installed on your machine, and a current Twilio account (http://www.twilio.com)
 - **import_call_results** - Requires the get-call-results.rb Ruby script in the ruby-apps folder, the twilio-ruby Ruby gem installed on your machine, and a current Twilio account (http://www.twilio.com)
 - **problem_oncall_employees** - Requires a valid ACL GRC account where results set may be exported.
+- **tweet_results** - Requires the t Ruby gem to be installed and configured to use your Twitter account (https://github.com/sferik/t#configuration).
 
 Modifications to the scripts may obviously be made to add your own Twilio user credentials, ACL GRC export location, etc. The scripts simply illustrate how to conduct the test.
